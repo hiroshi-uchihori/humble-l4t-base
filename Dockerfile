@@ -4,7 +4,12 @@
 
 FROM nvcr.io/nvidia/l4t-base:r36.2.0
 
-# -----------------------------------------------------------
+RUN apt-get update && \
+    apt-get -y upgrade && \
+    apt-get -y dist-upgrade && \
+    rm -rf /var/lib/apt/lists/*
+
+# ----------------------------------------------------------
 # 非対話型設定（tzdata）
 # -----------------------------------------------------------
 ENV DEBIAN_FRONTEND=noninteractive
